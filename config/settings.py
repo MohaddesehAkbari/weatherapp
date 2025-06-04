@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'weatherapp', #inja faghat weatherapp ro ezafe kardam
+
 ]
 
 MIDDLEWARE = [
