@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
 
 
@@ -33,7 +34,12 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
+            # اگر کلاس از قبل تعریف نشده بود، کلاس Bootstrap رو اضافه کن
             existing_classes = field.widget.attrs.get('class', '')
             field.widget.attrs['class'] = (existing_classes + ' form-control').strip()
 
+            # برای زیبایی می‌تونی placeholder هم اضافه کنی:
             field.widget.attrs['placeholder'] = field.label
+
+
+
